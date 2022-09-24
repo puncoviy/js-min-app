@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Product } from './components/Product';
-import { products } from './data/products';
+// import { products } from './data/products';
 import axios from 'axios'
 import { IProduct } from './models';
 
 function App() {
+    const [products, setProducts] = useState<IProduct[]>([])
+
     async function fetchProducts() {
         const response = await axios.get<IProduct[]>('https://fakestoreapi.com/products?limit=5')
-        console.log(response)
+        setProducts(response.data)
     }
 
     useEffect( () => {
