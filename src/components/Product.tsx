@@ -23,15 +23,11 @@ export function Product({ product }: ProductProps) {
             <p className="font-bold">£{product.price}</p>
             <button
                 className='py-2 px-4 border bg-yellow-400'
-                onClick={() => setDetails(true)}
+                onClick={() => setDetails(prev => !prev)}
             >Show details</button>
 
             {details && <div>
                 <p>{product.description}</p>
-                <button
-                    className='py-2 px-4 border bg-yellow-400'
-                    onClick={() => setDetails(false)}
-                >Hide details</button>
             </div>}
         </div>
     )
