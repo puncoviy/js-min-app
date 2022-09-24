@@ -24,7 +24,7 @@ export function Product({ product }: ProductProps) {
             <button
                 className='py-2 px-4 border bg-yellow-400'
                 onClick={() => setDetails(prev => !prev)}
-            >Show details</button>
+            >{details ? 'Hide' : 'Show'} details</button>
 
             {details && <div>
                 <p>{product.description}</p>
