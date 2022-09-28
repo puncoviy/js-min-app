@@ -15,18 +15,26 @@ const productData: IProduct = {
     }
 }
 
-export function CreateProduct() {
+interface CreateProductProps {
+    onCreate: (prodcut: IProduct) => void
+}
+
+export function CreateProduct({ onCreate }: CreateProductProps) {
     const [value, setValue] = useState('')
     const [error, setError] = useState('')
 
     const submitHandler = async (event: React.FormEvent) => {
         event.preventDefault();
+        setError('')
+
         if (value.trim().length === 0) {
             setError('Please enter valid title!')
             return
         }
+
         productData.title = value
         const response = await axios.post<IProduct>('https://fakestoreapi.com/products', productData)
+        onCreate(response.data)
     }
 
     // const changeHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
