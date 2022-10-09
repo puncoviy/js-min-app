@@ -21,7 +21,15 @@ export function Product({ product }: ProductProps) {
             >
                 {details ? 'Show less' : 'Show more'}
             </button>
-            {details && <p>{product.description}</p>}
+            {details && (
+                <div>
+                    <p className="pb-2">{product.description}</p>
+                    <p>
+                        Rate:
+                        <span className="font-bold">{product.rating.rate}</span>
+                    </p>
+                </div>
+            )}
         </div>
     )
 }
