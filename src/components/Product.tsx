@@ -8,7 +8,7 @@ interface ProductProps {
 export function Product({ product }: ProductProps) {
     const [details, setDetails] = useState(false)
     const btnToggle = details ? 'bg-yellow-400' : 'bg-blue-400'
-    const btnClasses = ['py-2 px-4 border rounded', btnToggle]
+    const btnClasses = ['py-2 px-4 border rounded min-w-[120px]', btnToggle]
 
     return (
         <div className="border py-2 px-4 rounded flex flex-col items-center mb-2">
