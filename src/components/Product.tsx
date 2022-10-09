@@ -26,7 +26,9 @@ export function Product({ product }: ProductProps) {
                     <p className="pb-2">{product.description}</p>
                     <p>
                         Rate:
-                        <span className="font-bold">{product.rating.rate}</span>
+                        <span className="font-bold">
+                            {product?.rating?.rate}
+                        </span>
                     </p>
                 </div>
             )}
